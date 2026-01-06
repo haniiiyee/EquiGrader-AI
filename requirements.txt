@@ -1,0 +1,24 @@
+# requirements.txt
+
+# Frontend
+streamlit
+
+# Backend API
+fastapi
+uvicorn[standard]
+
+# AI & Model Interaction
+ollama             # The Python client to talk to our local Ollama service
+sentence-transformers # For creating embeddings to match rubrics
+
+# Speech-to-Text
+openai-whisper     # The open-source Whisper model
+
+# Audio Handling
+librosa            # For audio processing
+pydub              # For converting audio formats
+
+# Database (Firebase)
+firebase-admin
+
+streamlit-mic-recorder
