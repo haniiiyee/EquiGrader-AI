@@ -1,5 +1,3 @@
-# backend/main.py
-
 import json
 import random
 import uvicorn
@@ -8,13 +6,21 @@ import whisper
 import shutil
 import re
 import os
+import io
+import numpy as np
+# New imports
+import librosa
+from pydub import AudioSegment
+import firebase_admin
+from firebase_admin import credentials, firestore
+
 from fastapi import FastAPI, HTTPException, Query, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-app = FastAPI(title="AI Smart Interviewing System API", version="2.0.0")
+app = FastAPI(title="AI Smart Interviewer API", version="2.1.0")
 
-# --- CORS Setup (Allows Frontend to talk to Backend) ---
+# --- CORS Setup ---
 origins = ["http://localhost", "http://localhost:8501"]
 app.add_middleware(
     CORSMiddleware,
@@ -23,6 +29,22 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# --- Firebase Initialization (Placeholder) ---
+# NOTE: To use Firebase, you must download your serviceAccountKey.json from Firebase Console
+# and place it in the 'backend' folder.
+try:
+    if os.path.exists("serviceAccountKey.json"):
+        cred = credentials.Certificate("serviceAccountKey.json")
+        firebase_admin.initialize_app(cred)
+        db = firestore.client()
+        print("INFO:     Firebase initialized successfully.")
+    else:
+        print("WARNING:  serviceAccountKey.json not found. Firebase features disabled.")
+        db = None
+except Exception as e:
+    print(f"WARNING:  Firebase init failed: {e}")
+    db = None
 
 # --- Global Data Loading ---
 def load_question_bank():
@@ -36,8 +58,7 @@ def load_question_bank():
 
 QUESTION_BANK = load_question_bank()
 
-# Load Whisper Model (Speech-to-Text)
-# We load it once at startup so it's fast later
+# Load Whisper Model
 try:
     WHISPER_MODEL = whisper.load_model("base")
     print("INFO:     Whisper 'base' model loaded.")
@@ -45,7 +66,7 @@ except Exception as e:
     print(f"WARNING:  Whisper model failed to load: {e}")
     WHISPER_MODEL = None
 
-# --- Data Models (Pydantic) ---
+# --- Data Models ---
 class AnswerRequest(BaseModel):
     question_id: str
     answer_text: str
@@ -54,9 +75,7 @@ class ChatRequest(BaseModel):
     message: str
 
 # --- Helper Functions ---
-
 def get_question_by_id(question_id: str):
-    """Finds a question object in the JSON bank by its ID."""
     for question in QUESTION_BANK:
         if question["id"] == question_id:
             return question
@@ -67,26 +86,23 @@ def transcribe_audio_to_text(audio_file_path: str) -> str:
     if not WHISPER_MODEL:
         return "Error: Whisper model not loaded."
     
-    # fp16=False allows it to run on CPU if you don't have a GPU
+    # We can use librosa here to load audio if we want to do pre-processing
+    # y, sr = librosa.load(audio_file_path) 
+    # But Whisper handles file paths directly very well.
+    
     result = WHISPER_MODEL.transcribe(audio_file_path, fp16=False)
     return result["text"]
 
 # --- CORE AI EVALUATION ENGINE ---
 async def perform_evaluation(question_id: str, answer_text: str):
-    """
-    Sends the question + answer to Ollama (Phi-3) for grading.
-    Includes logic for Bias Prevention and Robust JSON parsing.
-    """
     question_data = get_question_by_id(question_id)
     if not question_data:
         raise HTTPException(status_code=404, detail="Question not found.")
     
-    # 1. Prepare the Rubric String
     rubric_str = ""
     for i, item in enumerate(question_data.get('scoring_rubric', [])):
         rubric_str += f"{i+1}. {item['point']}: {item['expected_answer']}\n"
 
-    # 2. Construct the "Anti-Bias" Prompt
     prompt = f"""
     You are an impartial, expert technical interviewer. Grade the candidate's answer based on the rubric.
 
@@ -96,19 +112,13 @@ async def perform_evaluation(question_id: str, answer_text: str):
 
     Candidate Answer: "{answer_text}"
 
-    --- BIAS PREVENTION & FAIRNESS PROTOCOL ---
-    1. OBJECTIVITY: Grade solely on technical accuracy. Ignore spelling, grammar, or sentence structure unless it destroys meaning.
-    2. NO LENGTH BIAS: Do not penalize long answers if they contain the correct info. Do not penalize short answers if they hit the key points.
-    3. SEMANTIC MATCHING: Look for the *meaning*, not just exact keywords.
-    4. CULTURAL NEUTRALITY: Do not infer or judge based on the candidate's dialect or tone.
-
     --- SCORING INSTRUCTIONS ---
     - Scale: 0 to 100. (Passing is 60).
     - If the candidate mentions the core concept, score MUST be > 75.
-    - If the answer includes extra valid details, treat them as positive or neutral, NEVER negative.
+    - Ignore minor grammar issues.
 
     --- OUTPUT FORMAT ---
-    Return ONLY a raw JSON object (no markdown, no intro text):
+    Return ONLY a raw JSON object:
     {{
       "rubric_evaluation": [
         {{ "point": "Rubric Point 1", "met": true, "feedback": "Brief comment" }}
@@ -119,46 +129,47 @@ async def perform_evaluation(question_id: str, answer_text: str):
     """
     
     try:
-        # 3. Call Ollama
         response = ollama.chat(model='phi3', messages=[{'role': 'user', 'content': prompt}])
         raw_content = response['message']['content']
-        print(f"DEBUG: AI Raw Response: {raw_content}") 
-
-        # 4. Robust JSON Parsing (Fixes "0%" errors)
-        # We look for the first '{' and the last '}' to extract the JSON part
-        json_match = re.search(r'\{[\s\S]*\}', raw_content)
         
+        json_match = re.search(r'\{[\s\S]*\}', raw_content)
         if json_match:
-            clean_json = json_match.group(0)
-            result = json.loads(clean_json)
+            result = json.loads(json_match.group(0))
         else:
-            # Fallback if AI fails to output JSON
-            print("ERROR: AI did not return valid JSON.")
             return {
                 "overall_score": 70,
-                "final_summary": "Good effort. The AI understood your answer but failed to format the score.",
+                "final_summary": "AI graded but failed to format JSON.",
                 "rubric_evaluation": []
             }
 
-        # 5. Score Normalization (Fixes "3%" or "0.8" errors)
+        # Normalize Score
         score = result.get("overall_score", 0)
-        
-        # If AI gave a decimal (0.85), convert to 85
-        if 0 < score <= 1:
-            score = int(score * 100)
-        # If AI gave a 5-point scale (4/5), convert to 80
-        elif 1 < score <= 10:
-            score = int((score / 5) * 100)
-            if score > 100: score = 100
-
+        if 0 < score <= 1: score = int(score * 100)
+        elif 1 < score <= 10: score = int((score / 5) * 100)
+        if score > 100: score = 100
         result["overall_score"] = score
+        
+        # --- Firebase Logging (Optional) ---
+        if db:
+            try:
+                # Save result to Firestore
+                doc_ref = db.collection('interviews').document()
+                doc_ref.set({
+                    'question_id': question_id,
+                    'answer': answer_text,
+                    'score': score,
+                    'timestamp': firestore.SERVER_TIMESTAMP
+                })
+            except Exception as e:
+                print(f"Firebase error: {e}")
+
         return result
 
     except Exception as e:
         print(f"CRITICAL ERROR: {e}")
         return {
             "overall_score": 0,
-            "final_summary": "System Error: Could not evaluate answer.",
+            "final_summary": "System Error.",
             "rubric_evaluation": []
         }
 
@@ -166,63 +177,49 @@ async def perform_evaluation(question_id: str, answer_text: str):
 
 @app.get("/get_question")
 def get_question(topic: str = Query(...)):
-    """Returns a random question for the selected topic."""
     topic_questions = [q for q in QUESTION_BANK if topic.lower() in q["topic"].lower()]
     if not topic_questions:
-        raise HTTPException(status_code=404, detail="No questions found for this topic.")
+        raise HTTPException(status_code=404, detail="No questions found.")
     return random.choice(topic_questions)
 
 @app.post("/evaluate_answer")
 async def evaluate_answer(request: AnswerRequest):
-    """Evaluates a text answer."""
     return await perform_evaluation(request.question_id, request.answer_text)
 
 @app.post("/evaluate_audio")
 async def evaluate_audio(question_id: str = File(...), audio_file: UploadFile = File(...)):
-    """Evaluates an audio file answer."""
     temp_path = f"temp_{audio_file.filename}"
     
-    # Save uploaded file temporarily
     with open(temp_path, "wb") as buffer:
         shutil.copyfileobj(audio_file.file, buffer)
         
     try:
-        # 1. Transcribe
+        # Example pydub usage: Check duration
+        audio = AudioSegment.from_file(temp_path)
+        duration_seconds = len(audio) / 1000
+        print(f"Audio duration: {duration_seconds} seconds")
+
         text = transcribe_audio_to_text(temp_path)
-        
-        # 2. Evaluate
         result = await perform_evaluation(question_id, text)
         result["transcribed_text"] = text
         return result
         
     finally:
-        # Cleanup: Delete temp file
         if os.path.exists(temp_path):
             os.remove(temp_path)
 
 @app.post("/chat")
 async def chat_bot(request: ChatRequest):
-    """Context-aware chatbot for user assistance."""
-    system_context = """
-    You are the 'Smart Interviewer Assistant'.
-    - Help students understand how to use this app.
-    - Explain technical concepts in ECE/Electronics if asked.
-    - Be encouraging and helpful.
-    - Do not give full answers to the interview questions, just hints.
-    """
-    
+    system_context = "You are the 'EquiGrader AI' assistant. Help students."
     try:
         response = ollama.chat(
             model='phi3',
-            messages=[
-                {'role': 'system', 'content': system_context},
-                {'role': 'user', 'content': request.message}
-            ]
+            messages=[{'role': 'system', 'content': system_context},
+                      {'role': 'user', 'content': request.message}]
         )
         return {"response": response['message']['content']}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# --- Main Entry Point ---
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=False)

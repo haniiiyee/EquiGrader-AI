@@ -3,3 +3,7 @@ uvicorn
 ollama
 openai-whisper
 python-multipart
+librosa
+pydub
+firebase-admin
+numpy
