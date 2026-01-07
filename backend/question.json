@@ -1,0 +1,2062 @@
+[
+  {
+    "id": "ece_001",
+    "topic": "Electronic Devices (ECE)",
+    "question": "Can you explain the difference between a BJT (Bipolar Junction Transistor) and a MOSFET (Metal-Oxide-Semiconductor Field-Effect Transistor)?",
+    "scoring_rubric": [
+      {
+        "point": "Control Mechanism",
+        "expected_answer": "BJT is a current-controlled device (requires base current), while a MOSFET is a voltage-controlled device (requires gate voltage)."
+      },
+      {
+        "point": "Input Impedance",
+        "expected_answer": "BJT has a low input impedance, while a MOSFET has a very high input impedance (due to the insulated gate)."
+      },
+      {
+        "point": "Construction Type",
+        "expected_answer": "BJT is a bipolar device (uses both electrons and holes), while a MOSFET is a unipolar device (uses only one type of charge carrier)."
+      }
+    ]
+  },
+  {
+    "id": "ece_002",
+    "topic": "Electronic Devices (ECE)",
+    "question": "Explain the working principle of a P-N junction diode under forward and reverse bias.",
+    "scoring_rubric": [
+      {
+        "point": "Forward Bias",
+        "expected_answer": "Positive voltage to P-side, negative to N-side. Applied field opposes the built-in barrier, narrowing the depletion region and allowing large current flow."
+      },
+      {
+        "point": "Reverse Bias",
+        "expected_answer": "Negative voltage to P-side, positive to N-side. Applied field reinforces the barrier, widening the depletion region and allowing only a tiny leakage current."
+      },
+      {
+        "point": "Breakdown Mechanism",
+        "expected_answer": "Mentions either Zener or Avalanche breakdown as the mechanism for failure under heavy reverse bias."
+      }
+    ]
+  },
+  {
+    "id": "ece_003",
+    "topic": "Electronic Devices (ECE)",
+    "question": "What is the Early effect in a BJT and what is its main consequence?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "The Early effect is the variation (reduction) in the effective width of the base region in a BJT when the collector-base junction voltage increases."
+      },
+      {
+        "point": "Mechanism",
+        "expected_answer": "As the reverse bias on the collector-base junction increases, the depletion region widens, which reduces the effective neutral base width."
+      },
+      {
+        "point": "Consequence",
+        "expected_answer": "This causes the collector current to increase slightly with an increase in collector-emitter voltage, resulting in a non-zero (finite) output resistance."
+      }
+    ]
+  },
+  {
+    "id": "ece_004",
+    "topic": "Analog Circuits (ECE)",
+    "question": "What are the characteristics of an ideal operational amplifier (Op-Amp)?",
+    "scoring_rubric": [
+      {
+        "point": "Gain and Bandwidth",
+        "expected_answer": "Infinite open-loop voltage gain and infinite bandwidth."
+      },
+      {
+        "point": "Input/Output Impedance",
+        "expected_answer": "Infinite input impedance (draws no current) and zero output impedance."
+      },
+      {
+        "point": "CMRR and Slew Rate",
+        "expected_answer": "Infinite Common Mode Rejection Ratio (CMRR) and infinite slew rate."
+      },
+      {
+        "point": "Offsets",
+        "expected_answer": "Zero input offset voltage and zero input offset current."
+      }
+    ]
+  },
+  {
+    "id": "ece_005",
+    "topic": "Analog Circuits (ECE)",
+    "question": "Explain the concept of negative feedback in amplifiers and list two key benefits.",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "Negative feedback is a technique where a fraction of the output signal is fed back to the input in such a way that it opposes the original input signal."
+      },
+      {
+        "point": "Benefit 1: Gain Stabilization",
+        "expected_answer": "It makes the overall gain less dependent on the open-loop gain and more dependent on the stable, passive feedback components."
+      },
+      {
+        "point": "Benefit 2: Bandwidth/Distortion",
+        "expected_answer": "It significantly increases the amplifier's bandwidth and reduces non-linear distortion."
+      }
+    ]
+  },
+  {
+    "id": "ece_006",
+    "topic": "Analog Circuits (ECE)",
+    "question": "What is the purpose of a differential amplifier, and what is its most important metric?",
+    "scoring_rubric": [
+      {
+        "point": "Core Function",
+        "expected_answer": "To amplify the *difference* between two input voltages (differential gain)."
+      },
+      {
+        "point": "Rejection Function",
+        "expected_answer": "To reject any voltage that is *common* to both inputs (common-mode gain)."
+      },
+      {
+        "point": "Key Metric",
+        "expected_answer": "Its most important metric is the Common Mode Rejection Ratio (CMRR), which is the ratio of differential gain to common-mode gain, and should be ideally infinite (very high)."
+      }
+    ]
+  },
+  {
+    "id": "ece_007",
+    "topic": "Digital Design & HDL (ECE)",
+    "question": "What is the primary difference between a combinational logic circuit and a sequential logic circuit?",
+    "scoring_rubric": [
+      {
+        "point": "Combinational Logic",
+        "expected_answer": "In a combinational circuit, the output depends *only* on the current (present) input values."
+      },
+      {
+        "point": "Sequential Logic",
+        "expected_answer": "In a sequential circuit, the output depends on *both* the current input values and the past output values (the state of the circuit)."
+      },
+      {
+        "point": "Key Component (Memory)",
+        "expected_answer": "Sequential circuits must have memory elements (like flip-flops or latches) to store the past state, while combinational circuits do not have memory."
+      }
+    ]
+  },
+  {
+    "id": "ece_008",
+    "topic": "Digital Design & HDL (ECE)",
+    "question": "In Verilog, what is the difference between blocking (`=`) and non-blocking (`<=`) assignments?",
+    "scoring_rubric": [
+      {
+        "point": "Blocking Assignment (`=`)",
+        "expected_answer": "Blocking assignments are executed sequentially, one after the other. They block the execution of the next statement until the current one is complete."
+      },
+      {
+        "point": "Non-Blocking Assignment (`<=`)",
+        "expected_answer": "Non-blocking assignments are scheduled to occur at the end of the current simulation time step. All assignments are 'scheduled' in parallel, and then all registers are updated simultaneously."
+      },
+      {
+        "point": "Usage Guideline",
+        "expected_answer": "As a rule, use blocking assignments (`=`) for modeling combinational logic and use non-blocking assignments (`<=`) for modeling sequential logic (like flip-flops)."
+      }
+    ]
+  },
+  {
+    "id": "ece_009",
+    "topic": "Digital Design & HDL (ECE)",
+    "question": "What is setup time and hold time in a flip-flop, and why are they important?",
+    "scoring_rubric": [
+      {
+        "point": "Setup Time (T_su)",
+        "expected_answer": "Setup time is the minimum time the data input must be stable *before* the active clock edge arrives."
+      },
+      {
+        "point": "Hold Time (T_h)",
+        "expected_answer": "Hold time is the minimum time the data input must remain stable *after* the active clock edge has passed."
+      },
+      {
+        "point": "Importance (Metastability)",
+        "expected_answer": "If either setup or hold time is violated, the flip-flop's output may go into a metastable (unpredictable) state, causing logic failures in the circuit."
+      }
+    ]
+  },
+  {
+    "id": "ece_010",
+    "topic": "Digital Design & HDL (ECE)",
+    "question": "What is the difference between a Mux (Multiplexer) and a Demux (Demultiplexer)?",
+    "scoring_rubric": [
+      {
+        "point": "Mux (Multiplexer)",
+        "expected_answer": "A Mux is a 'many-to-one' device. It has multiple data inputs, selection lines, and one data output. It selects one of the input lines to route to the output."
+      },
+      {
+        "point": "Demux (Demultiplexer)",
+        "expected_answer": "A Demux is a 'one-to-many' device. It has one data input, selection lines, and multiple data outputs. It routes the single input to one of the output lines."
+      },
+      {
+        "point": "Analogy",
+        "expected_answer": "A Mux is like a rotary switch, and a Demux is like a data distributor."
+      }
+    ]
+  },
+  {
+    "id": "ece_011",
+    "topic": "Network Theory (ECE)",
+    "question": "State and explain Thevenin's Theorem.",
+    "scoring_rubric": [
+      {
+        "point": "Statement",
+        "expected_answer": "Thevenin's Theorem states that any linear, two-terminal circuit can be replaced by an equivalent circuit."
+      },
+      {
+        "point": "Equivalent Circuit",
+        "expected_answer": "The equivalent circuit consists of a single voltage source (V_th) in series with a single resistor (R_th)."
+      },
+      {
+        "point": "Calculating V_th and R_th",
+        "expected_answer": "V_th is the open-circuit voltage at the terminals, and R_th is the equivalent resistance seen from the terminals with all independent sources turned off."
+      }
+    ]
+  },
+  {
+    "id": "ece_012",
+    "topic": "Network Theory (ECE)",
+    "question": "What is the Maximum Power Transfer Theorem?",
+    "scoring_rubric": [
+      {
+        "point": "Statement",
+        "expected_answer": "The Maximum Power Transfer Theorem states that maximum power is delivered to the load when the load resistance (R_L) is equal to the source's equivalent resistance (R_th or R_s)."
+      },
+      {
+        "point": "AC Circuits Condition",
+        "expected_answer": "In AC circuits, the load impedance (Z_L) must be the complex conjugate of the source impedance (Z_s*)."
+      },
+      {
+        "point": "Efficiency",
+        "expected_answer": "Under this condition, the efficiency of power transfer is only 50%, as an equal amount of power is dissipated in the source resistance."
+      }
+    ]
+  },
+  {
+    "id": "ece_013",
+    "topic": "Network Theory (ECE)",
+    "question": "What is resonance in a series RLC circuit?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "Resonance is a condition where the inductive reactance (X_L) becomes equal to the capacitive reactance (X_C)."
+      },
+      {
+        "point": "Consequence (Impedance)",
+        "expected_answer": "At resonance, the reactances cancel, causing the total circuit impedance to be at its minimum value (equal to only the resistance R)."
+      },
+      {
+        "point": "Consequence (Current)",
+        "expected_answer": "Because the impedance is minimum, the current in the circuit becomes maximum. The circuit behaves purely resistively."
+      }
+    ]
+  },
+  {
+    "id": "ece_014",
+    "topic": "Signals & Systems (ECE)",
+    "question": "What are the properties of a system that is LTI (Linear Time-Invariant)?",
+    "scoring_rubric": [
+      {
+        "point": "Linearity",
+        "expected_answer": "A system is linear if it obeys the principle of superposition (both additivity and homogeneity)."
+      },
+      {
+        "point": "Time-Invariance",
+        "expected_answer": "A system is time-invariant if a time shift in the input signal causes an identical time shift in the output signal, without any change in the output's shape."
+      },
+      {
+        "point": "Significance (Convolution)",
+        "expected_answer": "LTI systems are significant because their output can be found by convolving the input signal with the system's impulse response."
+      }
+    ]
+  },
+  {
+    "id": "ece_015",
+    "topic": "Signals & Systems (ECE)",
+    "question": "What is the Nyquist Sampling Theorem, and what happens if it is violated?",
+    "scoring_rubric": [
+      {
+        "point": "Statement",
+        "expected_answer": "The Nyquist Theorem states that to perfectly reconstruct a signal, the sampling frequency (f_s) must be strictly greater than twice the maximum frequency (f_max) in the signal."
+      },
+      {
+        "point": "Nyquist Rate",
+        "expected_answer": "The minimum sampling rate (2*f_max) is called the Nyquist rate."
+      },
+      {
+        "point": "Violation (Aliasing)",
+        "expected_answer": "If the sampling rate is less than the Nyquist rate, a phenomenon called aliasing occurs, where high-frequency components 'fold' into the low-frequency range, causing irreversible distortion."
+      }
+    ]
+  },
+  {
+    "id": "ece_016",
+    "topic": "Signals & Systems (ECE)",
+    "question": "Explain the difference between the Fourier Transform and the Laplace Transform.",
+    "scoring_rubric": [
+      {
+        "point": "Core Purpose (Fourier)",
+        "expected_answer": "The Fourier Transform is used to analyze the frequency content (spectrum) of a stable, steady-state signal."
+      },
+      {
+        "point": "Core Purpose (Laplace)",
+        "expected_answer": "The Laplace Transform is a more general tool used to analyze LTI systems, including their transient response and stability, by converting differential equations to algebraic equations in the 's-domain'."
+      },
+      {
+        "point": "Relationship",
+        "expected_answer": "The Fourier Transform is a special case of the Laplace Transform, evaluated on the imaginary axis (s = jw), but only for signals where the region of convergence includes this axis."
+      }
+    ]
+  },
+  {
+    "id": "ece_017",
+    "topic": "Signals & Systems (ECE)",
+    "question": "What is the difference between a causal and a non-causal system?",
+    "scoring_rubric": [
+      {
+        "point": "Causal System",
+        "expected_answer": "A causal system is one where the output at any time 't' depends *only* on the present and past inputs. It does not depend on future inputs."
+      },
+      {
+        "point": "Non-Causal System",
+        "expected_answer": "A non-causal system is one where the output *does* depend on future inputs. (e.g., y(t) = x(t+1))."
+      },
+      {
+        "point": "Real-World",
+        "expected_answer": "All real-time physical systems are causal. Non-causal systems can only exist in offline processing (e.g., image processing) where the entire signal is already available."
+      }
+    ]
+  },
+  {
+    "id": "ece_018",
+    "topic": "Digital Signal Processing (DSP)",
+    "question": "What is the difference between an FIR (Finite Impulse Response) filter and an IIR (Infinite Impulse Response) filter?",
+    "scoring_rubric": [
+      {
+        "point": "Impulse Response",
+        "expected_answer": "An FIR filter has an impulse response that is finite in duration (settles to zero). An IIR filter has an impulse response that is infinite (never settles to zero)."
+      },
+      {
+        "point": "Feedback",
+        "expected_answer": "FIR filters are non-recursive (have no feedback). IIR filters are recursive and use feedback, meaning the output depends on past outputs."
+      },
+      {
+        "point": "Stability & Phase",
+        "expected_answer": "FIR filters are always stable and can easily be designed to have linear phase. IIR filters are more efficient (need fewer coefficients) but can be unstable and do not have linear phase."
+      }
+    ]
+  },
+  {
+    "id": "ece_019",
+    "topic": "Digital Signal Processing (DSP)",
+    "question": "What is the Fast Fourier Transform (FFT), and why is it important?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "The FFT (Fast Fourier Transform) is not a new transform, but a highly efficient algorithm for computing the Discrete Fourier Transform (DFT)."
+      },
+      {
+        "point": "Importance (Efficiency)",
+        "expected_answer": "It reduces the computational complexity of the DFT from O(N^2) to O(N log N), making it fast enough to be used in real-time applications."
+      },
+      {
+        "point": "Application",
+        "expected_answer": "It is fundamental to digital signal processing, used in spectrum analysis, filtering (e.g., overlap-add method), and communication systems like OFDM."
+      }
+    ]
+  },
+  {
+    "id": "ece_020",
+    "topic": "Digital Signal Processing (DSP)",
+    "question": "What is 'windowing' in the context of DSP?",
+    "scoring_rubric": [
+      {
+        "point": "Problem",
+        "expected_answer": "When analyzing a finite segment of a signal, the DFT assumes the signal is periodic. This causes 'spectral leakage', where energy from one frequency bin 'leaks' into others."
+      },
+      {
+        "point": "Solution (Windowing)",
+        "expected_answer": "Windowing is the process of multiplying the finite signal segment by a 'window function' (like Hanning, Hamming, or Blackman) that tapers to zero at the ends."
+      },
+      {
+        "point": "Result",
+        "expected_answer": "This reduces the abrupt discontinuities at the start and end of the segment, which significantly reduces spectral leakage, providing a clearer frequency spectrum."
+      }
+    ]
+  },
+  {
+    "id": "ece_021",
+    "topic": "Digital Communications (ECE)",
+    "question": "What is modulation, and why is it necessary in communication systems?",
+    "scoring_rubric": [
+      {
+        "point": "Definition of Modulation",
+        "expected_answer": "Modulation is the process of varying one or more properties of a high-frequency carrier signal (like amplitude, frequency, or phase) in accordance with a low-frequency information signal."
+      },
+      {
+        "point": "Reason 1: Antenna Size",
+        "expected_answer": "It allows for the use of practical antenna sizes. Low-frequency baseband signals would require impractically large antennas to be transmitted efficiently."
+      },
+      {
+        "point": "Reason 2: Multiplexing",
+        "expected_answer": "It allows for multiplexing (like FDM/OFDM), where multiple signals can be sent over the same channel simultaneously without interfering."
+      }
+    ]
+  },
+  {
+    "id": "ece_022",
+    "topic": "Digital Communications (ECE)",
+    "question": "Explain the difference between ASK, FSK, and PSK digital modulation schemes.",
+    "scoring_rubric": [
+      {
+        "point": "ASK (Amplitude Shift Keying)",
+        "expected_answer": "In ASK, the amplitude of the carrier is varied (e.g., high for '1', zero for '0'). It is simple but very susceptible to noise."
+      },
+      {
+        "point": "FSK (Frequency Shift Keying)",
+        "expected_answer": "In FSK, the frequency of the carrier is varied (e.g., a higher frequency for '1', a lower frequency for '0'). It is more robust to noise than ASK."
+      },
+      {
+        "point": "PSK (Phase Shift Keying)",
+        "expected_answer": "In PSK, the phase of the carrier is varied (e.g., 0 degrees for '1', 180 degrees for '0'). It is power-efficient and forms the basis for more advanced schemes like QPSK."
+      }
+    ]
+  },
+  {
+    "id": "ece_023",
+    "topic": "Digital Communications (ECE)",
+    "question": "What is the difference between TDMA, FDMA, and CDMA as multiple access techniques?",
+    "scoring_rubric": [
+      {
+        "point": "FDMA (Frequency Division)",
+        "expected_answer": "FDMA divides the total frequency spectrum into smaller, non-overlapping frequency bands. Each user gets their own private frequency channel."
+      },
+      {
+        "point": "TDMA (Time Division)",
+        "expected_answer": "TDMA allows multiple users to share the same frequency band by dividing the signal into different time slots. Each user gets their own private time slot."
+      },
+      {
+        "point": "CDMA (Code Division)",
+        "expected_answer": "CDMA allows all users to transmit in the same frequency band at the same time. Each user is assigned a unique 'spreading code' that allows the receiver to distinguish their signal from all the others."
+      }
+    ]
+  },
+  {
+    "id": "ece_024",
+    "topic": "Digital Communications (ECE)",
+    "question": "What is Channel Capacity, according to Shannon-Hartley Theorem?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "Channel Capacity (C) is the theoretical maximum rate of data transfer (in bits per second) that can be achieved over a communication channel with a specific bandwidth and noise level."
+      },
+      {
+        "point": "Formula",
+        "expected_answer": "The theorem states C = B * log2(1 + S/N), where C is the capacity, B is the channel bandwidth, and S/N is the signal-to-noise ratio."
+      },
+      {
+        "point": "Significance",
+        "expected_answer": "It provides a fundamental upper limit for error-free communication over a noisy channel. It shows we can trade bandwidth for signal-to-noise ratio."
+      }
+    ]
+  },
+  {
+    "id": "ece_025",
+    "topic": "VLSI Design (ECE)",
+    "question": "What is the difference between a MOSFET and a FinFET?",
+    "scoring_rubric": [
+      {
+        "point": "MOSFET (Planar)",
+        "expected_answer": "A traditional MOSFET is a planar (2D) device, where the gate controls the channel (current flow) from only one side (the top)."
+      },
+      {
+        "point": "FinFET (3D)",
+        "expected_answer": "A FinFET is a non-planar (3D) transistor. The channel is a vertical 'fin', and the gate wraps around this fin on three sides."
+      },
+      {
+        "point": "Advantage",
+        "expected_answer": "This multi-gate structure gives the gate much better control over the channel, which significantly reduces short-channel effects like leakage current, allowing for faster and more power-efficient transistors."
+      }
+    ]
+  },
+  {
+    "id": "ece_026",
+    "topic": "VLSI Design (ECE)",
+    "question": "Explain the 'design flow' for a typical ASIC.",
+    "scoring_rubric": [
+      {
+        "point": "Frontend Design",
+        "expected_answer": "Starts with 'System Specification', then 'RTL Design' (writing Verilog/VHDL code), and 'Functional Simulation' to ensure the logic is correct."
+      },
+      {
+        "point": "Logic Synthesis",
+        "expected_answer": "Synthesis is the process of converting the high-level RTL code into a lower-level gate-level netlist using a standard cell library."
+      },
+      {
+        "point": "Backend Design (Physical)",
+        "expected_answer": "This includes 'Floorplanning', 'Placement' (placing the cells), 'Clock Tree Synthesis', and 'Routing' (connecting the cells with wires)."
+      },
+      {
+        "point": "Verification & Tape-out",
+        "expected_answer": "The final layout is verified (DRC/LVS checks) and then 'taped out' to the foundry for fabrication."
+      }
+    ]
+  },
+  {
+    "id": "ece_027",
+    "topic": "VLSI Design (ECE)",
+    "question": "What is meant by 'short-channel effects' in a MOSFET?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "Short-channel effects are undesirable behaviors that occur in MOSFETs as the channel length is scaled down to deep sub-micron levels."
+      },
+      {
+        "point": "Mechanism",
+        "expected_answer": "When the channel is very short, the drain voltage starts to significantly influence the channel potential, reducing the gate's control over the channel."
+      },
+      {
+        "point": "Examples",
+        "expected_answer": "Key examples include 'Drain-Induced Barrier Lowering' (DIBL), 'velocity saturation', 'hot carrier injection', and increased subthreshold leakage current."
+      }
+    ]
+  },
+  {
+    "id": "ece_028",
+    "topic": "ARM Microcontrollers (ECE)",
+    "question": "What is the key difference between a RISC and a CISC architecture?",
+    "scoring_rubric": [
+      {
+        "point": "Instruction Set",
+        "expected_answer": "CISC (Complex Instruction Set) has a large set of complex, multi-cycle instructions. RISC (Reduced Instruction Set), like ARM, has a small, highly optimized set of simple, single-cycle instructions."
+      },
+      {
+        "point": "Memory Access",
+        "expected_answer": "CISC instructions can often access memory directly. RISC uses a 'Load/Store' architecture, where only explicit Load and Store instructions can access memory."
+      },
+      {
+        "point": "Compiler vs. Hardware",
+        "expected_answer": "CISC places emphasis on hardware to execute complex tasks. RISC places emphasis on the compiler to break down complex tasks into many simple instructions."
+      }
+    ]
+  },
+  {
+    "id": "ece_029",
+    "topic": "ARM Microcontrollers (ECE)",
+    "question": "What are the different operating modes of an ARM processor?",
+    "scoring_rubric": [
+      {
+        "point": "Privileged vs. Non-Privileged",
+        "expected_answer": "ARM processors have privileged modes (like Supervisor, IRQ, FIQ) which have full access to system resources, and one non-privileged mode (User)."
+      },
+      {
+        "point": "User Mode (USR)",
+        "expected_answer": "This is the main mode for running most applications. It is non-privileged, so it cannot directly access protected hardware or change system-critical settings."
+      },
+      {
+        "point": "Exception Modes",
+        "expected_answer": "Exception modes (FIQ, IRQ, Supervisor, Abort, Undefined) are privileged modes that the processor enters when an interrupt, exception, or software interrupt occurs."
+      }
+    ]
+  },
+  {
+    "id": "ece_030",
+    "topic": "ARM Microcontrollers (ECE)",
+    "question": "What is the 'pipeline' in an ARM processor and what is its main benefit?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "Pipelining is a technique where the processor breaks down instruction execution into multiple stages (e.g., Fetch, Decode, Execute)."
+      },
+      {
+        "point": "Parallel Execution",
+        "expected_answer": "It allows these stages to operate in parallel on different instructions. While one instruction is being executed, the next is being decoded, and the one after that is being fetched."
+      },
+      {
+        "point": "Benefit",
+        "expected_answer": "This significantly increases the instruction throughput (number of instructions completed per second) and processor efficiency, as all parts of the processor are kept busy."
+      }
+    ]
+  },
+  {
+    "id": "ece_031",
+    "topic": "Electromagnetics (ECE)",
+    "question": "State Gauss's Law for electric fields and explain one of its applications.",
+    "scoring_rubric": [
+      {
+        "point": "Statement",
+        "expected_answer": "Gauss's Law states that the total electric flux out of a closed surface is equal to the net charge enclosed divided by the permittivity of free space ($\\epsilon_0$)."
+      },
+      {
+        "point": "Formula",
+        "expected_answer": "Mentions the integral form: $\\oint E \\cdot dA = Q_{enc} / \\epsilon_0$."
+      },
+      {
+        "point": "Application",
+        "expected_answer": "Finding the electric field of a symmetric charge distribution, like a sphere, infinite line, or infinite plane."
+      }
+    ]
+  },
+  {
+    "id": "ece_032",
+    "topic": "Control Systems (ECE)",
+    "question": "What is the difference between an open-loop and a closed-loop control system?",
+    "scoring_rubric": [
+      {
+        "point": "Open-Loop",
+        "expected_answer": "An open-loop system's control action is independent of the output. It does not use feedback. (e.g., a simple toaster)."
+      },
+      {
+        "point": "Closed-Loop",
+        "expected_answer": "A closed-loop system uses feedback. The output is measured and fed back to the input to reduce the error between the desired output (setpoint) and the actual output. (e.g., a thermostat)."
+      },
+      {
+        "point": "Key Difference",
+        "expected_answer": "The key difference is the use of a feedback path and a sensor to correct for disturbances and errors."
+      }
+    ]
+  },
+  {
+    "id": "ece_033",
+    "topic": "Control Systems (ECE)",
+    "question": "What is the Routh-Hurwitz stability criterion used for?",
+    "scoring_rubric": [
+      {
+        "point": "Purpose",
+        "expected_answer": "It is a mathematical method used to determine the stability of a linear time-invariant (LTI) system."
+      },
+      {
+        "point": "Mechanism",
+        "expected_answer": "It checks the system's characteristic equation (the denominator of the transfer function) to see if all its roots (poles) are in the left-half of the s-plane."
+      },
+      {
+        "point": "Result",
+        "expected_answer": "It can tell you *if* the system is stable and *how many* roots are in the right-half plane (unstable), but not the exact location of the roots."
+      }
+    ]
+  },
+  {
+    "id": "ece_034",
+    "topic": "Control Systems (ECE)",
+    "question": "What is the difference between a Bode plot and a Nyquist plot?",
+    "scoring_rubric": [
+      {
+        "point": "Bode Plot",
+        "expected_answer": "A Bode plot consists of two graphs: magnitude (in dB) vs. frequency and phase (in degrees) vs. frequency, both on a log scale."
+      },
+      {
+        "point": "Nyquist Plot",
+        "expected_answer": "A Nyquist plot is a single graph of the frequency response (G(jw)) plotted in the complex plane (real vs. imaginary axis) as frequency (w) varies."
+      },
+      {
+        "point": "Primary Use",
+        "expected_answer": "Bode plots are useful for gain and phase margins. Nyquist plots are used for stability analysis using the Nyquist stability criterion, especially for systems with feedback."
+      }
+    ]
+  },
+  {
+    "id": "ece_035",
+    "topic": "Control Systems (ECE)",
+    "question": "What are 'gain margin' and 'phase margin' and what do they indicate?",
+    "scoring_rubric": [
+      {
+        "point": "Gain Margin (GM)",
+        "expected_answer": "The gain margin is the amount of gain (in dB) that can be added to the system before it becomes unstable. It's measured at the phase crossover frequency."
+      },
+      {
+        "point": "Phase Margin (PM)",
+        "expected_answer": "The phase margin is the amount of phase lag (in degrees) that can be added before the system becomes unstable. It's measured at the gain crossover frequency."
+      },
+      {
+        "point": "Indication",
+        "expected_answer": "They are measures of 'relative stability' or how 'safe' the system is from instability. Larger margins mean a more stable, robust system (but often slower response)."
+      }
+    ]
+  },
+  {
+    "id": "ece_036",
+    "topic": "Electromagnetics (ECE)",
+    "question": "State Faraday's Law of Induction.",
+    "scoring_rubric": [
+      {
+        "point": "Statement",
+        "expected_answer": "Faraday's Law states that a changing magnetic flux through a conducting loop induces an electromotive force (EMF) or voltage in the loop."
+      },
+      {
+        "point": "Formula (Differential)",
+        "expected_answer": "Mentions the formula: $\\nabla \\times E = -\\partial B / \\partial t$."
+      },
+      {
+        "point": "Lenz's Law",
+        "expected_answer": "The negative sign indicates Lenz's Law: the induced current flows in a direction that opposes the change in magnetic flux that produced it."
+      }
+    ]
+  },
+  {
+    "id": "ece_037",
+    "topic": "Electromagnetics (ECE)",
+    "question": "What is a 'skin effect' and when is it significant?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "Skin effect is the tendency of an alternating current (AC) to become distributed within a conductor such that the current density is largest near the surface (skin)."
+      },
+      {
+        "point": "Cause",
+        "expected_answer": "It is caused by self-induced eddy currents that oppose the main current flow, with the opposition being strongest at the center of the conductor."
+      },
+      {
+        "point": "Significance",
+        "expected_answer": "It is significant at high frequencies. It increases the effective resistance of the conductor, leading to higher power loss."
+      }
+    ]
+  },
+  {
+    "id": "ece_038",
+    "topic": "Electromagnetics (ECE)",
+    "question": "What is the difference between a conductor and a dielectric in terms of electromagnetics?",
+    "scoring_rubric": [
+      {
+        "point": "Conductor",
+        "expected_answer": "A conductor has many free charge carriers (like electrons in metal). When an E-field is applied, these charges move, creating a current. (High conductivity, $\\sigma$)."
+      },
+      {
+        "point": "Dielectric",
+        "expected_answer": "A dielectric (insulator) has very few free charges. When an E-field is applied, charges are 'displaced' or 'polarized', storing energy, but no significant current flows. (Low conductivity, $\\sigma \\approx 0$)."
+      },
+      {
+        "point": "Key Parameter",
+        "expected_answer": "The key difference is conductivity ($\\sigma$). In a good conductor, conduction current dominates; in a good dielectric, displacement current dominates."
+      }
+    ]
+  },
+  {
+    "id": "ece_039",
+    "topic": "Computer Networks (ECE)",
+    "question": "What is the difference between TCP and UDP?",
+    "scoring_rubric": [
+      {
+        "point": "TCP (Transmission Control Protocol)",
+        "expected_answer": "TCP is connection-oriented, reliable, and uses sequencing. It guarantees delivery of packets in the correct order (e.g., web browsing, email)."
+      },
+      {
+        "point": "UDP (User Datagram Protocol)",
+        "expected_answer": "UDP is connectionless and unreliable. It is faster ('fire and forget') but does not guarantee delivery or order (e.g., video streaming, online gaming)."
+      },
+      {
+        "point": "Key Trade-off",
+        "expected_answer": "The trade-off is between reliability (TCP) and speed/low-latency (UDP)."
+      }
+    ]
+  },
+  {
+    "id": "ece_040",
+    "topic": "Computer Networks (ECE)",
+    "question": "Explain the 7 layers of the OSI model.",
+    "scoring_rubric": [
+      {
+        "point": "Layers 1-3 (Lower)",
+        "expected_answer": "Physical (bits, wires), Data Link (frames, MAC addresses), Network (packets, IP addresses, routing)."
+      },
+      {
+        "point": "Layer 4 (Middle)",
+        "expected_answer": "Transport (segments, TCP/UDP, end-to-end connection)."
+      },
+      {
+        "point": "Layers 5-7 (Upper)",
+        "expected_answer": "Session (session management), Presentation (data formatting, encryption), Application (user-facing protocols like HTTP, FTP)."
+      }
+    ]
+  },
+  {
+    "id": "ece_041",
+    "topic": "Computer Networks (ECE)",
+    "question": "What is the purpose of a MAC address?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "A MAC (Media Access Control) address is a unique hardware identifier assigned to a network interface controller (NIC)."
+      },
+      {
+        "point": "Function (Layer 2)",
+        "expected_answer": "It is used in Layer 2 (Data Link Layer) of the OSI model, to deliver data frames within a local network (e.g., from your computer to your Wi-Fi router)."
+      },
+      {
+        "point": "MAC vs. IP",
+        "expected_answer": "An IP address is logical (like a house's street address, can change) while a MAC address is physical (like a house's GPS coordinates, permanent)."
+      }
+    ]
+  },
+  {
+    "id": "ece_042",
+    "topic": "VLSI Design (ECE)",
+    "question": "What is the difference between a latch and a flip-flop?",
+    "scoring_rubric": [
+      {
+        "point": "Latch (Level-sensitive)",
+        "expected_answer": "A latch is level-sensitive. Its output can change (is transparent) whenever the enable/clock signal is at a specific level (e.g., high)."
+      },
+      {
+        "point": "Flip-Flop (Edge-sensitive)",
+        "expected_answer": "A flip-flop is edge-sensitive. Its output changes *only* at the precise moment of a clock transition (the rising or falling edge)."
+      },
+      {
+        "point": "Usage",
+        "expected_answer": "Flip-flops are preferred in synchronous digital systems (like FPGAs and ASICs) because they make timing analysis much simpler and avoid race conditions."
+      }
+    ]
+  },
+  {
+    "id": "ece_043",
+    "topic": "VLSI Design (ECE)",
+    "question": "What is 'power gating' in VLSI?",
+    "scoring_rubric": [
+      {
+        "point": "Problem",
+        "expected_answer": "Static leakage current (power consumed even when a circuit block is idle) is a major problem in modern chips."
+      },
+      {
+        "point": "Solution (Power Gating)",
+        "expected_answer": "Power gating is a technique to reduce leakage by temporarily shutting off the power supply (Vdd) to an entire block of the circuit when it's not in use."
+      },
+      {
+        "point": "Implementation",
+        "expected_answer": "This is done by placing a high-Vt 'sleep' transistor in series with the block's power or ground rail, which is turned off to cut the power."
+      }
+    ]
+  },
+  {
+    "id": "ece_044",
+    "topic": "VLSI Design (ECE)",
+    "question": "What are DRC and LVS checks in the ASIC design flow?",
+    "scoring_rubric": [
+      {
+        "point": "DRC (Design Rule Check)",
+        "expected_answer": "DRC is a physical verification check. It ensures that the chip layout (polygons for metal, poly, etc.) does not violate any of the foundry's manufacturing rules (e.g., minimum width, spacing)."
+      },
+      {
+        "point": "LVS (Layout vs. Schematic)",
+        "expected_answer": "LVS is a logical verification check. It extracts the circuit diagram (netlist) from the physical layout and compares it to the original schematic to ensure they match."
+      },
+      {
+        "point": "Purpose",
+        "expected_answer": "DRC ensures the chip is manufacturable. LVS ensures the chip will function as designed. Both are required 'sign-off' checks."
+      }
+    ]
+  },
+  {
+    "id": "ece_045",
+    "topic": "Digital Communications (ECE)",
+    "question": "What is OFDM (Orthogonal Frequency-Division Multiplexing)?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "OFDM is a digital modulation technique that splits a single high-speed data stream into many lower-speed sub-streams."
+      },
+      {
+        "point": "Mechanism",
+        "expected_answer": "Each sub-stream is transmitted in parallel on a separate, closely-spaced carrier frequency (subcarrier). These subcarriers are 'orthogonal' to each other, so they don't interfere."
+      },
+      {
+        "point": "Advantage",
+        "expected_answer": "It is highly robust against multipath fading (signal reflections) and is used in 4G/5G, Wi-Fi, and digital TV."
+      }
+    ]
+  },
+  {
+    "id": "ece_046",
+    "topic": "Digital Communications (ECE)",
+    "question": "What is the 'bit error rate' (BER)?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "BER is the number of bit errors (bits that flip from 0 to 1 or 1 to 0) that occur, divided by the total number of bits transferred during a time interval."
+      },
+      {
+        "point": "Cause",
+        "expected_answer": "Errors are typically caused by noise, interference, and distortion in the communication channel."
+      },
+      {
+        "point": "Metric",
+        "expected_answer": "It is a fundamental metric for measuring the performance of a digital communication system. A lower BER is better."
+      }
+    ]
+  },
+  {
+    "id": "ece_047",
+    "topic": "Digital Communications (ECE)",
+    "question": "What is the purpose of 'channel coding' (e.g., convolutional or block codes)?",
+    "scoring_rubric": [
+      {
+        "point": "Problem",
+        "expected_answer": "Data gets corrupted by noise when passing through a communication channel."
+      },
+      {
+        "point": "Solution",
+        "expected_answer": "Channel coding (or Forward Error Correction, FEC) is the process of adding redundant bits to the data *before* transmission."
+      },
+      {
+        "point": "Result",
+        "expected_answer": "This redundancy allows the receiver to detect and, more importantly, *correct* errors that occurred, without needing retransmission, improving the overall BER."
+      }
+    ]
+  },
+  {
+    "id": "ece_048",
+    "topic": "Digital Signal Processing (DSP)",
+    "question": "What is the difference between upsampling and downsampling (interpolation and decimation)?",
+    "scoring_rubric": [
+      {
+        "point": "Downsampling (Decimation)",
+        "expected_answer": "Downsampling by a factor of M is the process of reducing the sampling rate by keeping only every M-th sample. Requires a low-pass (anti-aliasing) filter first."
+      },
+      {
+        "point": "Upsampling (Interpolation)",
+        "expected_answer": "Upsampling by a factor of L is the process of increasing the sampling rate by inserting L-1 zero-valued samples between each original sample. This is followed by a low-pass (anti-imaging) filter to 'interpolate' or fill in the values."
+      },
+      {
+        "point": "Analogy",
+        "expected_answer": "Upsampling is like adding 'blank' samples, and interpolation is 'filling in the blanks' with a filter."
+      }
+    ]
+  },
+  {
+    "id": "ece_049",
+    "topic": "Digital Signal Processing (DSP)",
+    "question": "What is the 'Region of Convergence' (ROC) in the context of the Z-Transform?",
+    "scoring_rubric": [
+      {
+        "point": "Z-Transform Definition",
+        "expected_answer": "The Z-Transform converts a discrete-time signal into a complex frequency-domain representation."
+      },
+      {
+        "point": "ROC Definition",
+        "expected_answer": "The ROC is the set of all values of 'z' (in the complex plane) for which the Z-Transform summation converges to a finite value."
+      },
+      {
+        "point": "Significance",
+        "expected_answer": "The ROC is crucial because it determines properties of the signal, such as causality and stability. A signal is not uniquely defined by its Z-Transform alone; it needs the ROC."
+      }
+    ]
+  },
+  {
+    "id": "ece_050",
+    "topic": "Digital Signal Processing (DSP)",
+    "question": "What is the main advantage of a 'linear phase' FIR filter?",
+    "scoring_rubric": [
+      {
+        "point": "Phase Response",
+        "expected_answer": "A linear phase response means that all frequency components of the signal are delayed by the *same* amount of time as they pass through the filter."
+      },
+      {
+        "point": "Advantage",
+        "expected_answer": "This prevents 'phase distortion' or 'group delay distortion', which would change the shape of the signal. It is critical for applications like audio and video processing, where preserving the signal's shape is important."
+      },
+      {
+        "point": "Contrast",
+        "expected_answer": "IIR filters, by contrast, have non-linear phase, which can distort the signal's waveform."
+      }
+    ]
+  },
+  {
+    "id": "ece_051",
+    "topic": "Signals & Systems (ECE)",
+    "question": "What is 'convolution' and what does it represent physically?",
+    "scoring_rubric": [
+      {
+        "point": "Mathematical Definition",
+        "expected_answer": "Convolution is a mathematical operation on two functions that produces a third function expressing how the shape of one is modified by the other."
+      },
+      {
+        "point": "Physical Meaning (LTI)",
+        "expected_answer": "In LTI systems, convolution represents the system's output. Convolving the input signal (x[n]) with the system's impulse response (h[n]) gives the output (y[n])."
+      },
+      {
+        "point": "Intuition",
+        "expected_answer": "It's a way of 'smearing' or 'blending' one signal with a time-reversed version of the other. The impulse response h[n] describes *how* the system smears any input."
+      }
+    ]
+  },
+  {
+    "id": "ece_052",
+    "topic": "Signals & Systems (ECE)",
+    "question": "What is the difference between an 'energy' signal and a 'power' signal?",
+    "scoring_rubric": [
+      {
+        "point": "Energy Signal",
+        "expected_answer": "An energy signal has finite total energy (E < $\\infty$) and, consequently, zero average power. These signals are typically time-limited (e.g., a single pulse)."
+      },
+      {
+        "point": "Power Signal",
+        "expected_answer": "A power signal has infinite total energy, but a finite average power (P < $\\infty$). These signals are typically periodic or random (e.g., a sine wave, white noise)."
+      },
+      {
+        "point": "Exclusivity",
+        "expected_answer": "A signal is either an energy signal, a power signal, or neither. It cannot be both."
+      }
+    ]
+  },
+  {
+    "id": "ece_053",
+    "topic": "Signals & Systems (ECE)",
+    "question": "What is a 'BIBO stable' system?",
+    "scoring_rubric": [
+      {
+        "point": "BIBO Definition",
+        "expected_answer": "BIBO stands for 'Bounded-Input, Bounded-Output'."
+      },
+      {
+        "point": "Stability Condition",
+        "expected_answer": "A system is BIBO stable if *every* bounded input signal produces a bounded output signal. (The output will not 'blow up' to infinity)."
+      },
+      {
+        "point": "LTI System Condition",
+        "expected_answer": "For an LTI system, this is true if and only if its impulse response is absolutely summable (or integrable in continuous time)."
+      }
+    ]
+  },
+  {
+    "id": "ece_054",
+    "topic": "Analog Circuits (ECE)",
+    "question": "What is a 'current mirror' circuit and what is its main purpose?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "A current mirror is a circuit, typically made of two matched transistors (BJTs or MOSFETs), designed to copy (or 'mirror') a current from one branch to another."
+      },
+      {
+        "point": "Mechanism",
+        "expected_answer": "A reference current is fed into one transistor, generating a specific Vgs or Vbe. This same voltage is then applied to the second transistor, which 'forces' it to conduct the same (or a scaled) amount of current."
+      },
+      {
+        "point": "Purpose",
+        "expected_answer": "It is a fundamental building block in analog ICs, used to create stable current sources and to bias other transistors (active loads)."
+      }
+    ]
+  },
+  {
+    "id": "ece_055",
+    "topic": "Analog Circuits (ECE)",
+    "question": "Explain the concept of a 'virtual ground' in an ideal op-amp circuit.",
+    "scoring_rubric": [
+      {
+        "point": "Condition (Negative Feedback)",
+        "expected_answer": "In an ideal op-amp with negative feedback (like an inverting amplifier), the op-amp will do whatever it takes to make the voltage difference between its two inputs (V+ and V-) equal to zero."
+      },
+      {
+        "point": "Virtual Ground",
+        "expected_answer": "If the non-inverting terminal (V+) is connected to ground (0V), the op-amp's action will force the inverting terminal (V-) to also be at 0V."
+      },
+      {
+        "point": "Significance",
+        "expected_answer": "It is called a 'virtual' ground because it is at 0V, but it is *not* a direct connection to ground. No current flows *into* the op-amp terminal, allowing for easy circuit analysis (e.g., KCL)."
+      }
+    ]
+  },
+  {
+    "id": "ece_056",
+    "topic": "Analog Circuits (ECE)",
+    "question": "What is the difference between a Class A, Class B, and Class AB power amplifier?",
+    "scoring_rubric": [
+      {
+        "point": "Class A",
+        "expected_answer": "The transistor conducts for the full 360 degrees of the input cycle. It has high linearity but very poor efficiency (max 25-50%)."
+      },
+      {
+        "point": "Class B",
+        "expected_answer": "The transistor conducts for only 180 degrees (half) of the cycle. It is more efficient (max 78.5%) but suffers from 'crossover distortion'."
+      },
+      {
+        "point": "Class AB",
+        "expected_answer": "A compromise. Each transistor conducts for slightly *more* than 180 degrees. This eliminates crossover distortion while maintaining high efficiency, making it very common."
+      }
+    ]
+  },
+  {
+    "id": "ece_057",
+    "topic": "Electronic Devices (ECE)",
+    "question": "What is 'punch-through' in a BJT?",
+    "scoring_rubric": [
+      {
+        "point": "Mechanism",
+        "expected_answer": "It occurs when the reverse bias on the collector-base junction is increased so much that its depletion region widens and spreads all the way across the base."
+      },
+      {
+        "point": "Result",
+        "expected_answer": "The depletion region 'touches' the emitter-base depletion region. The base effectively disappears, and the collector and emitter are shorted."
+      },
+      {
+        "point": "Consequence",
+        "expected_answer": "This causes a large, uncontrolled current to flow, which can destroy the transistor. It is a form of breakdown."
+      }
+    ]
+  },
+  {
+    "id": "ece_058",
+    "topic": "Electronic Devices (ECE)",
+    "question": "What is the purpose of the 'gate oxide' in a MOSFET?",
+    "scoring_rubric": [
+      {
+        "point": "Component",
+        "expected_answer": "It is a very thin layer of insulating material (like Silicon Dioxide, $SiO_2$) that sits between the metal gate terminal and the silicon channel."
+      },
+      {
+        "point": "Function (Insulation)",
+        "expected_answer": "Its primary job is to insulate the gate from the channel. This is why MOSFETs have extremely high input impedance (almost no current flows into the gate)."
+      },
+      {
+        "point": "Function (Capacitor)",
+        "expected_answer": "It forms a capacitor. Applying a voltage to the gate creates an electric field *across* the oxide, which is what attracts or repels charge carriers in the channel, controlling the current flow."
+      }
+    ]
+  },
+  {
+    "id": "ece_059",
+    "topic": "Electronic Devices (ECE)",
+    "question": "What is 'doping' in a semiconductor?",
+    "scoring_rubric": [
+      {
+        "point": "Definition",
+        "expected_answer": "Doping is the intentional process of introducing impurities into an intrinsic (pure) semiconductor (like silicon) to change its electrical properties."
+      },
+      {
+        "point": "N-type",
+        "expected_answer": "Doping with pentavalent atoms (like Phosphorus) adds extra 'free' electrons, creating an N-type semiconductor (negative charge carriers)."
+      },
+      {
+        "point": "P-type",
+        "expected_answer": "Doping with trivalent atoms (like Boron) creates 'holes' (an absence of an electron), creating a P-type semiconductor (positive charge carriers)."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_001",
+    "topic": "Aptitude",
+    "question": "A train moving at 60 km/hr crosses a man standing on a platform in 9 seconds. What is the length of the train in meters?",
+    "scoring_rubric": [
+      {
+        "point": "Convert Speed",
+        "expected_answer": "Must convert speed from km/hr to m/s. 60 km/hr * (5/18) = 50/3 m/s."
+      },
+      {
+        "point": "Identify Formula",
+        "expected_answer": "The formula is Distance = Speed * Time. Here, the distance is the length of the train."
+      },
+      {
+        "point": "Calculate Length",
+        "expected_answer": "Length = (50/3 m/s) * 9 seconds = 150 meters."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_002",
+    "topic": "Aptitude",
+    "question": "A can do a piece of work in 10 days, and B can do the same work in 15 days. In how many days will they finish the work if they work together?",
+    "scoring_rubric": [
+      {
+        "point": "Individual Rates",
+        "expected_answer": "A's one-day work is 1/10. B's one-day work is 1/15."
+      },
+      {
+        "point": "Combined Rate",
+        "expected_answer": "Their combined one-day work is (1/10) + (1/15) = (3+2)/30 = 5/30 = 1/6."
+      },
+      {
+        "point": "Total Time",
+        "expected_answer": "If they do 1/6 of the work in one day, they will complete the work in the reciprocal, which is 6 days."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_003",
+    "topic": "Aptitude",
+    "question": "The ratio of two numbers is 3:5. If their sum is 120, what is the larger number?",
+    "scoring_rubric": [
+      {
+        "point": "Set up Equation",
+        "expected_answer": "Let the numbers be 3x and 5x."
+      },
+      {
+        "point": "Solve for x",
+        "expected_answer": "The sum is 3x + 5x = 8x. So, 8x = 120, which means x = 15."
+      },
+      {
+        "point": "Find Larger Number",
+        "expected_answer": "The larger number is 5x, which is 5 * 15 = 75."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_004",
+    "topic": "Aptitude",
+    "question": "A man buys an article for $27.50 and sells it for $28.60. Find his gain percent.",
+    "scoring_rubric": [
+      {
+        "point": "Calculate Gain",
+        "expected_answer": "Gain = Selling Price - Cost Price = 28.60 - 27.50 = $1.10."
+      },
+      {
+        "point": "Formula for Gain Percent",
+        "expected_answer": "Gain Percent = (Gain / Cost Price) * 100."
+      },
+      {
+        "point": "Calculate Percent",
+        "expected_answer": "Percent = (1.10 / 27.50) * 100 = (110 / 27.5) = 4%. "
+      }
+    ]
+  },
+  {
+    "id": "aptitude_005",
+    "topic": "Aptitude",
+    "question": "What is the simple interest on $500 for 4 years at 6% per annum?",
+    "scoring_rubric": [
+      {
+        "point": "Identify Formula",
+        "expected_answer": "Simple Interest (SI) = (Principal * Rate * Time) / 100."
+      },
+      {
+        "point": "Plug in Values",
+        "expected_answer": "SI = (500 * 6 * 4) / 100."
+      },
+      {
+        "point": "Calculate Result",
+        "expected_answer": "SI = (500 * 24) / 100 = 5 * 24 = $120."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_006",
+    "topic": "Aptitude",
+    "question": "Two pipes A and B can fill a tank in 20 and 30 minutes respectively. If both pipes are opened together, how long will it take to fill the tank?",
+    "scoring_rubric": [
+      {
+        "point": "Individual Rates",
+        "expected_answer": "Pipe A's rate is 1/20 of the tank per minute. Pipe B's rate is 1/30 of the tank per minute."
+      },
+      {
+        "point": "Combined Rate",
+        "expected_answer": "Combined rate = (1/20) + (1/30) = (3 + 2) / 60 = 5/60 = 1/12 of the tank per minute."
+      },
+      {
+        "point": "Total Time",
+        "expected_answer": "If they fill 1/12 of the tank per minute, the total time to fill the tank is the reciprocal, which is 12 minutes."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_007",
+    "topic": "Aptitude",
+    "question": "A car covers a distance of 690 km in 30 hours. What is the average speed of the car in m/s?",
+    "scoring_rubric": [
+      {
+        "point": "Calculate Speed in km/hr",
+        "expected_answer": "Speed = Distance / Time = 690 km / 30 hr = 23 km/hr."
+      },
+      {
+        "point": "Conversion Factor",
+        "expected_answer": "To convert km/hr to m/s, you multiply by 5/18."
+      },
+      {
+        "point": "Calculate Speed in m/s",
+        "expected_answer": "Speed in m/s = 23 * (5/18) = 115 / 18 = 6.39 m/s (approx)."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_008",
+    "topic": "Aptitude",
+    "question": "The average of 5 numbers is 20. If one number is removed, the average becomes 23. What is the removed number?",
+    "scoring_rubric": [
+      {
+        "point": "Initial Total Sum",
+        "expected_answer": "The total sum of the 5 numbers is 5 * 20 = 100."
+      },
+      {
+        "point": "New Total Sum",
+        "expected_answer": "After removing one number, there are 4 numbers. Their total sum is 4 * 23 = 92."
+      },
+      {
+        "point": "Find Removed Number",
+        "expected_answer": "The removed number is the difference between the sums: 100 - 92 = 8."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_009",
+    "topic": "Aptitude",
+    "question": "If 30% of a number is 120, what is 45% of that number?",
+    "scoring_rubric": [
+      {
+        "point": "Solve for x",
+        "expected_answer": "Let the number be x. 0.30 * x = 120. So, x = 120 / 0.30 = 400."
+      },
+      {
+        "point": "Calculate 45% of the Number",
+        "expected_answer": "We need to find 45% of 400, which is 0.45 * 400."
+      },
+      {
+        "point": "Final Answer",
+        "expected_answer": "0.45 * 400 = 180."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_010",
+    "topic": "Aptitude",
+    "question": "The price of a shirt is increased from $80 to $100. What is the percentage increase?",
+    "scoring_rubric": [
+      {
+        "point": "Calculate Increase Amount",
+        "expected_answer": "The increase in price is $100 - $80 = $20."
+      },
+      {
+        "point": "Formula for Percent Increase",
+        "expected_answer": "Percent Increase = (Amount of Increase / Original Price) * 100."
+      },
+      {
+        "point": "Calculate Percent",
+        "expected_answer": "Percent = (20 / 80) * 100 = (1 / 4) * 100 = 25%."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_011",
+    "topic": "Aptitude",
+    "question": "Find the next number in the series: 3, 7, 15, 31, 63, ...",
+    "scoring_rubric": [
+      {
+        "point": "Identify Pattern",
+        "expected_answer": "Each number is the previous number multiplied by 2, plus 1."
+      },
+      {
+        "point": "Verify Pattern",
+        "expected_answer": "(3 * 2) + 1 = 7. (7 * 2) + 1 = 15. (15 * 2) + 1 = 31. (31 * 2) + 1 = 63."
+      },
+      {
+        "point": "Calculate Next Number",
+        "expected_answer": "The next number is (63 * 2) + 1 = 126 + 1 = 127."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_012",
+    "topic": "Aptitude",
+    "question": "A boat can travel 13 km/hr in still water. If the speed of the stream is 4 km/hr, find the time taken by the boat to go 68 km downstream.",
+    "scoring_rubric": [
+      {
+        "point": "Calculate Downstream Speed",
+        "expected_answer": "Downstream speed = Speed in still water + Speed of stream = 13 + 4 = 17 km/hr."
+      },
+      {
+        "point": "Identify Formula",
+        "expected_answer": "Time = Distance / Speed."
+      },
+      {
+        "point": "Calculate Time",
+        "expected_answer": "Time = 68 km / 17 km/hr = 4 hours."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_013",
+    "topic": "Aptitude",
+    "question": "What is the compound interest on $1000 for 2 years at 10% per annum, compounded annually?",
+    "scoring_rubric": [
+      {
+        "point": "Identify Formula",
+        "expected_answer": "Amount (A) = P * (1 + R/100)^T."
+      },
+      {
+        "point": "Calculate Total Amount",
+        "expected_answer": "A = 1000 * (1 + 10/100)^2 = 1000 * (1.1)^2 = 1000 * 1.21 = $1210."
+      },
+      {
+        "point": "Calculate Compound Interest",
+        "expected_answer": "Compound Interest (CI) = Amount - Principal = 1210 - 1000 = $210."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_014",
+    "topic": "Aptitude",
+    "question": "A father is 30 years older than his son. In 5 years, he will be 3 times as old as his son. What is the father's present age?",
+    "scoring_rubric": [
+      {
+        "point": "Set up Present Ages",
+        "expected_answer": "Let son's age = x. Then father's age = x + 30."
+      },
+      {
+        "point": "Set up Future Ages Equation",
+        "expected_answer": "In 5 years: (x + 30) + 5 = 3 * (x + 5). This simplifies to x + 35 = 3x + 15."
+      },
+      {
+        "point": "Solve for x and Find Father's Age",
+        "expected_answer": "2x = 20, so x = 10. The son is 10. The father's present age is x + 30 = 10 + 30 = 40 years."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_015",
+    "topic": "Aptitude",
+    "question": "If 15 men can do a job in 20 days, how many men are needed to do the same job in 10 days?",
+    "scoring_rubric": [
+      {
+        "point": "Identify Relationship",
+        "expected_answer": "This is an inverse relationship. Fewer days will require more men. (Man-Days is constant)."
+      },
+      {
+        "point": "Calculate Total Man-Days",
+        "expected_answer": "Total work = 15 men * 20 days = 300 man-days."
+      },
+      {
+        "point": "Calculate New Number of Men",
+        "expected_answer": "Number of men = Total Man-Days / New Days = 300 / 10 = 30 men."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_016",
+    "topic": "Aptitude",
+    "question": "The sum of the digits of a two-digit number is 8. If 18 is subtracted from the number, the digits are reversed. Find the number.",
+    "scoring_rubric": [
+      {
+        "point": "Set up Equations",
+        "expected_answer": "Let the number be 10x + y. Equation 1: x + y = 8. Equation 2: (10x + y) - 18 = 10y + x."
+      },
+      {
+        "point": "Simplify Equation 2",
+        "expected_answer": "9x - 9y = 18, which simplifies to x - y = 2."
+      },
+      {
+        "point": "Solve System of Equations",
+        "expected_answer": "We have x + y = 8 and x - y = 2. Adding them gives 2x = 10, so x = 5. Then 5 + y = 8, so y = 3. The number is 53."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_017",
+    "topic": "Aptitude",
+    "question": "A fruit vendor had some apples. He sells 40% of them and still has 420 apples. How many apples did he have originally?",
+    "scoring_rubric": [
+      {
+        "point": "Identify Remaining Percentage",
+        "expected_answer": "If he sells 40%, he has 100% - 40% = 60% of his apples remaining."
+      },
+      {
+        "point": "Set up Equation",
+        "expected_answer": "Let the original number be x. 60% of x is 420. So, 0.60 * x = 420."
+      },
+      {
+        "point": "Solve for x",
+        "expected_answer": "x = 420 / 0.60 = 4200 / 6 = 700. He originally had 700 apples."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_018",
+    "topic": "Aptitude",
+    "question": "What is the probability of drawing a king from a standard 52-card deck?",
+    "scoring_rubric": [
+      {
+        "point": "Identify Favorable Outcomes",
+        "expected_answer": "There are 4 kings in a standard deck (Hearts, Diamonds, Clubs, Spades)."
+      },
+      {
+        "point": "Identify Total Outcomes",
+        "expected_answer": "There are 52 cards in total."
+      },
+      {
+        "point": "Calculate Probability",
+        "expected_answer": "Probability = Favorable / Total = 4 / 52 = 1 / 13."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_019",
+    "topic": "Aptitude",
+    "question": "Find the area of a circle with a circumference of 44 cm.",
+    "scoring_rubric": [
+      {
+        "point": "Circumference Formula",
+        "expected_answer": "Circumference C = 2 * pi * r. We are given C = 44. (Use pi = 22/7)."
+      },
+      {
+        "point": "Solve for Radius (r)",
+        "expected_answer": "44 = 2 * (22/7) * r => 44 = (44/7) * r => r = 7 cm."
+      },
+      {
+        "point": "Area Formula and Calculation",
+        "expected_answer": "Area = pi * r^2 = (22/7) * 7^2 = (22/7) * 49 = 22 * 7 = 154 sq cm."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_020",
+    "topic": "Aptitude",
+    "question": "A cube has a volume of 125 cubic cm. What is the length of its side?",
+    "scoring_rubric": [
+      {
+        "point": "Volume Formula",
+        "expected_answer": "The volume (V) of a cube is side * side * side, or V = s^3."
+      },
+      {
+        "point": "Set up Equation",
+        "expected_answer": "We are given V = 125. So, s^3 = 125."
+      },
+      {
+        "point": "Solve for Side (s)",
+        "expected_answer": "The side 's' is the cube root of 125, which is 5. So, s = 5 cm."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_021",
+    "topic": "Aptitude",
+    "question": "A mixture of 40 liters contains milk and water in the ratio 3:1. How much water must be added to this mixture to make the ratio 2:1?",
+    "scoring_rubric": [
+      {
+        "point": "Initial Quantities",
+        "expected_answer": "Total = 40L. Ratio 3:1 (4 parts). One part = 40/4 = 10L. So, Milk = 3 * 10 = 30L, Water = 1 * 10 = 10L."
+      },
+      {
+        "point": "Set up New Ratio",
+        "expected_answer": "Let 'x' be the water added. The amount of milk is unchanged (30L). The new water is (10 + x)L. The new ratio is 30 / (10 + x) = 2 / 1."
+      },
+      {
+        "point": "Solve for x",
+        "expected_answer": "30 = 2 * (10 + x) => 30 = 20 + 2x => 10 = 2x => x = 5 liters."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_022",
+    "topic": "Aptitude",
+    "question": "Find the missing number in the series: 5, 6, 9, 14, 21, ...?",
+    "scoring_rubric": [
+      {
+        "point": "Identify Pattern (Differences)",
+        "expected_answer": "The differences between consecutive terms are: 6-5=1, 9-6=3, 14-9=5, 21-14=7."
+      },
+      {
+        "point": "Identify Pattern (Second Level)",
+        "expected_answer": "The differences are consecutive odd numbers: 1, 3, 5, 7."
+      },
+      {
+        "point": "Calculate Next Number",
+        "expected_answer": "The next difference must be 9. So, the next number is 21 + 9 = 30."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_023",
+    "topic": "Aptitude",
+    "question": "A grocer mixes 26 kg of tea at $20/kg with 30 kg of tea at $36/kg. He sells the mixture at $30/kg. What is his total profit or loss?",
+    "scoring_rubric": [
+      {
+        "point": "Calculate Total Cost Price (CP)",
+        "expected_answer": "CP = (26 * 20) + (30 * 36) = 520 + 1080 = $1600."
+      },
+      {
+        "point": "Calculate Total Selling Price (SP)",
+        "expected_answer": "Total quantity = 26 + 30 = 56 kg. SP = 56 * 30 = $1680."
+      },
+      {
+        "point": "Calculate Profit/Loss",
+        "expected_answer": "Since SP > CP, it is a profit. Profit = 1680 - 1600 = $80."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_024",
+    "topic": "Aptitude",
+    "question": "Find the next number in the series: 1, 4, 9, 16, 25, ...",
+    "scoring_rubric": [
+      {
+        "point": "Identify Pattern",
+        "expected_answer": "The numbers are the squares of consecutive integers."
+      },
+      {
+        "point": "Verify Pattern",
+        "expected_answer": "1 = 1^2, 4 = 2^2, 9 = 3^2, 16 = 4^2, 25 = 5^2."
+      },
+      {
+        "point": "Calculate Next Number",
+        "expected_answer": "The next number is 6^2, which is 36."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_025",
+    "topic": "Aptitude",
+    "question": "The ages of A and B are in the ratio 5:7. Eight years ago, their ages were in the ratio 7:13. Find their present ages.",
+    "scoring_rubric": [
+      {
+        "point": "Set up Present Ages",
+        "expected_answer": "Let present ages be 5x and 7x."
+      },
+      {
+        "point": "Set up Past Ages Equation",
+        "expected_answer": "8 years ago: (5x - 8) / (7x - 8) = 7 / 13."
+      },
+      {
+        "point": "Solve for x and Find Ages",
+        "expected_answer": "13(5x - 8) = 7(7x - 8) => 65x - 104 = 49x - 56 => 16x = 48 => x = 3. Ages are 5*3=15 and 7*3=21."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_026",
+    "topic": "Aptitude",
+    "question": "A man crosses a 600m long street in 5 minutes. What is his speed in km/hr?",
+    "scoring_rubric": [
+      {
+        "point": "Calculate Speed in m/s",
+        "expected_answer": "Time = 5 min = 5 * 60 = 300 seconds. Speed = Distance / Time = 600m / 300s = 2 m/s."
+      },
+      {
+        "point": "Conversion Factor",
+        "expected_answer": "To convert m/s to km/hr, multiply by 18/5."
+      },
+      {
+        "point": "Calculate Speed in km/hr",
+        "expected_answer": "Speed = 2 * (18/5) = 36/5 = 7.2 km/hr."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_027",
+    "topic": "Aptitude",
+    "question": "In how many ways can the letters of the word 'LEADER' be arranged?",
+    "scoring_rubric": [
+      {
+        "point": "Total Letters",
+        "expected_answer": "The word 'LEADER' has 6 letters."
+      },
+      {
+        "point": "Repeating Letters",
+        "expected_answer": "The letter 'E' is repeated 2 times."
+      },
+      {
+        "point": "Calculate Permutations",
+        "expected_answer": "Total arrangements = (Total letters)! / (Repeating letters)! = 6! / 2! = (720) / 2 = 360 ways."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_028",
+    "topic": "Aptitude",
+    "question": "Two dice are thrown simultaneously. What is the probability of getting a sum of 9?",
+    "scoring_rubric": [
+      {
+        "point": "Total Outcomes",
+        "expected_answer": "When two dice are thrown, the total number of outcomes is 6 * 6 = 36."
+      },
+      {
+        "point": "Favorable Outcomes (Sum = 9)",
+        "expected_answer": "The pairs that sum to 9 are: (3, 6), (4, 5), (5, 4), (6, 3). There are 4 favorable outcomes."
+      },
+      {
+        "point": "Calculate Probability",
+        "expected_answer": "Probability = Favorable / Total = 4 / 36 = 1 / 9."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_029",
+    "topic": "Aptitude",
+    "question": "A tap can fill a cistern in 8 hours and another tap can empty it in 16 hours. If both taps are opened, how long will it take to fill the cistern?",
+    "scoring_rubric": [
+      {
+        "point": "Individual Rates",
+        "expected_answer": "Fill tap's 1-hour work = 1/8. Empty tap's 1-hour work = -1/16 (negative as it's emptying)."
+      },
+      {
+        "point": "Combined Rate",
+        "expected_answer": "Combined 1-hour work = (1/8) - (1/16) = (2 - 1) / 16 = 1/16."
+      },
+      {
+        "point": "Total Time",
+        "expected_answer": "If they fill 1/16 of the cistern in one hour, the total time to fill it is 16 hours."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_030",
+    "topic": "Aptitude",
+    "question": "A boat goes 40 km upstream in 8 hours and 36 km downstream in 6 hours. Find the speed of the boat in still water.",
+    "scoring_rubric": [
+      {
+        "point": "Calculate Speeds",
+        "expected_answer": "Upstream Speed (U) = 40/8 = 5 km/hr. Downstream Speed (D) = 36/6 = 6 km/hr."
+      },
+      {
+        "point": "Formulas",
+        "expected_answer": "U = Boat Speed (B) - Stream Speed (S). D = B + S."
+      },
+      {
+        "point": "Solve for Boat Speed (B)",
+        "expected_answer": "Speed of boat in still water (B) = (D + U) / 2 = (6 + 5) / 2 = 11 / 2 = 5.5 km/hr."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_031",
+    "topic": "Aptitude",
+    "question": "If 3/5 of a number is 60, what is 1/2 of that number?",
+    "scoring_rubric": [
+      {
+        "point": "Find the Number",
+        "expected_answer": "Let the number be x. (3/5) * x = 60. So, x = 60 * (5/3) = 20 * 5 = 100."
+      },
+      {
+        "point": "Calculate Half",
+        "expected_answer": "We need to find 1/2 of the number."
+      },
+      {
+        "point": "Final Answer",
+        "expected_answer": "(1/2) * 100 = 50."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_032",
+    "topic": "Aptitude",
+    "question": "Find the area of a rectangle whose length is 15 cm and whose diagonal is 17 cm.",
+    "scoring_rubric": [
+      {
+        "point": "Identify Theorem",
+        "expected_answer": "Use the Pythagorean theorem: L^2 + W^2 = D^2."
+      },
+      {
+        "point": "Solve for Width (W)",
+        "expected_answer": "15^2 + W^2 = 17^2 => 225 + W^2 = 289 => W^2 = 64 => W = 8 cm."
+      },
+      {
+        "point": "Calculate Area",
+        "expected_answer": "Area = Length * Width = 15 * 8 = 120 sq cm."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_033",
+    "topic": "Aptitude",
+    "question": "The average of 20 numbers is 15. The average of the first 5 is 12. What is the average of the rest?",
+    "scoring_rubric": [
+      {
+        "point": "Total Sum",
+        "expected_answer": "Total sum of 20 numbers = 20 * 15 = 300."
+      },
+      {
+        "point": "Sum of First 5",
+        "expected_answer": "Sum of the first 5 numbers = 5 * 12 = 60."
+      },
+      {
+        "point": "Sum and Average of Rest",
+        "expected_answer": "Sum of the remaining 15 numbers = 300 - 60 = 240. Average of the rest = 240 / 15 = 16."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_034",
+    "topic": "Aptitude",
+    "question": "The sum of two numbers is 28 and their difference is 8. Find the numbers.",
+    "scoring_rubric": [
+      {
+        "point": "Set up Equations",
+        "expected_answer": "Let the numbers be x and y. x + y = 28. x - y = 8."
+      },
+      {
+        "point": "Solve for x and y",
+        "expected_answer": "Adding the two equations: 2x = 36, so x = 18. Then 18 + y = 28, so y = 10."
+      },
+      {
+        "point": "State the Numbers",
+        "expected_answer": "The two numbers are 18 and 10."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_035",
+    "topic": "Aptitude",
+    "question": "A, B, and C can do a piece of work in 20, 30, and 60 days respectively. In how many days can A do the work if he is assisted by B and C on every third day?",
+    "scoring_rubric": [
+      {
+        "point": "Individual Rates",
+        "expected_answer": "A = 1/20, B = 1/30, C = 1/60."
+      },
+      {
+        "point": "Work in 3-Day Cycle",
+        "expected_answer": "Day 1 (A): 1/20. Day 2 (A): 1/20. Day 3 (A+B+C): (1/20 + 1/30 + 1/60) = (3+2+1)/60 = 6/60 = 1/10."
+      },
+      {
+        "point": "Total Work and Time",
+        "expected_answer": "Work in 3 days = 1/20 + 1/20 + 1/10 = (1+1+2)/20 = 4/20 = 1/5. If 1/5 of the work is done in 3 days, the full work is done in 3 * 5 = 15 days."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_036",
+    "topic": "Aptitude",
+    "question": "What is 15% of 34?",
+    "scoring_rubric": [
+      {
+        "point": "Set up Calculation",
+        "expected_answer": "15% of 34 is (15 / 100) * 34."
+      },
+      {
+        "point": "Alternative Calculation",
+        "expected_answer": "Can be calculated as (10% of 34) + (5% of 34)."
+      },
+      {
+        "point": "Final Answer",
+        "expected_answer": "10% is 3.4. 5% is 1.7. So, 3.4 + 1.7 = 5.1."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_037",
+    "topic": "Aptitude",
+    "question": "The present population of a town is 180,000. If it increases at a rate of 10% per annum, what will be its population 2 years from now?",
+    "scoring_rubric": [
+      {
+        "point": "Identify Formula",
+        "expected_answer": "Use the compound interest formula: P_final = P_initial * (1 + R/100)^T."
+      },
+      {
+        "point": "Plug in Values",
+        "expected_answer": "P_final = 180000 * (1 + 10/100)^2 = 180000 * (1.1)^2."
+      },
+      {
+        "point": "Calculate Result",
+        "expected_answer": "P_final = 180000 * 1.21 = 217800."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_038",
+    "topic": "Aptitude",
+    "question": "A student has to get 40% marks to pass. He gets 178 marks and fails by 22 marks. What are the maximum marks?",
+    "scoring_rubric": [
+      {
+        "point": "Find Passing Marks",
+        "expected_answer": "The student failed by 22 marks, so the passing mark is 178 + 22 = 200 marks."
+      },
+      {
+        "point": "Set up Equation",
+        "expected_answer": "We are told 200 marks is 40% of the maximum. Let max marks be x. 0.40 * x = 200."
+      },
+      {
+        "point": "Solve for x",
+        "expected_answer": "x = 200 / 0.40 = 2000 / 4 = 500. The maximum marks are 500."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_039",
+    "topic": "Aptitude",
+    "question": "The ratio of two numbers is 3:4. Their LCM is 180. Find the numbers.",
+    "scoring_rubric": [
+      {
+        "point": "Set up Numbers",
+        "expected_answer": "Let the numbers be 3x and 4x."
+      },
+      {
+        "point": "Find LCM",
+        "expected_answer": "The LCM of 3x and 4x is (3 * 4 * x) = 12x."
+      },
+      {
+        "point": "Solve for x and Find Numbers",
+        "expected_answer": "We are given LCM = 180. So, 12x = 180, which means x = 15. The numbers are 3*15=45 and 4*15=60."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_040",
+    "topic": "Aptitude",
+    "question": "Find the next term in the series: 1, 1, 2, 3, 5, 8, 13, ...",
+    "scoring_rubric": [
+      {
+        "point": "Identify Pattern",
+        "expected_answer": "This is the Fibonacci sequence."
+      },
+      {
+        "point": "Explain Pattern",
+        "expected_answer": "Each number (from the third one) is the sum of the two preceding numbers."
+      },
+      {
+        "point": "Calculate Next Number",
+        "expected_answer": "1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5, 3 + 5 = 8, 5 + 8 = 13. The next number is 8 + 13 = 21."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_041",
+    "topic": "Aptitude",
+    "question": "A seller marks his goods 30% above the cost price but gives a 10% discount at the time of sale. What is his gain percent?",
+    "scoring_rubric": [
+      {
+        "point": "Set up Prices",
+        "expected_answer": "Let Cost Price (CP) = $100."
+      },
+      {
+        "point": "Calculate Marked Price (MP)",
+        "expected_answer": "MP is 30% above CP, so MP = $130."
+      },
+      {
+        "point": "Calculate Selling Price (SP) and Gain",
+        "expected_answer": "A 10% discount on $130 is 0.10 * 130 = $13. SP = 130 - 13 = $117. Since CP was $100, the gain is $17, which is 17%."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_042",
+    "topic": "Aptitude",
+    "question": "The diagonal of a square is 4 * sqrt(2) cm. What is the area of the square?",
+    "scoring_rubric": [
+      {
+        "point": "Formula for Diagonal",
+        "expected_answer": "The diagonal (d) of a square with side 's' is d = s * sqrt(2)."
+      },
+      {
+        "point": "Solve for Side (s)",
+        "expected_answer": "4 * sqrt(2) = s * sqrt(2). So, the side 's' = 4 cm."
+      },
+      {
+        "point": "Calculate Area",
+        "expected_answer": "Area = s^2 = 4^2 = 16 sq cm."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_043",
+    "topic": "Aptitude",
+    "question": "A, B, and C invest in a business in the ratio 2:3:5. If the total profit is $20,000, what is B's share?",
+    "scoring_rubric": [
+      {
+        "point": "Identify Total Parts",
+        "expected_answer": "The total ratio is 2 + 3 + 5 = 10 parts."
+      },
+      {
+        "point": "Find Value of One Part",
+        "expected_answer": "10 parts = $20,000. So, 1 part = $2,000."
+      },
+      {
+        "point": "Calculate B's Share",
+        "expected_answer": "B's share is 3 parts. So, B's share = 3 * $2,000 = $6,000."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_044",
+    "topic": "Aptitude",
+    "question": "A clock shows 8:30. What is the angle between the hour hand and the minute hand?",
+    "scoring_rubric": [
+      {
+        "point": "Formula",
+        "expected_answer": "Angle = |(30 * H) - (5.5 * M)|, where H is the hour and M is the minute."
+      },
+      {
+        "point": "Plug in Values",
+        "expected_answer": "H = 8, M = 30. Angle = |(30 * 8) - (5.5 * 30)|."
+      },
+      {
+        "point": "Calculate Result",
+        "expected_answer": "Angle = |240 - 165| = 75 degrees."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_045",
+    "topic": "Aptitude",
+    "question": "From the word 'MANAGED', what is the probability of picking an 'A'?",
+    "scoring_rubric": [
+      {
+        "point": "Total Letters",
+        "expected_answer": "There are 7 letters in 'MANAGED'."
+      },
+      {
+        "point": "Favorable Outcomes (A)",
+        "expected_answer": "The letter 'A' appears 2 times."
+      },
+      {
+        "point": "Calculate Probability",
+        "expected_answer": "Probability = Favorable / Total = 2 / 7."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_046",
+    "topic": "Aptitude",
+    "question": "A train 100m long is running at 30 km/hr. How long will it take to cross a pole?",
+    "scoring_rubric": [
+      {
+        "point": "Convert Speed",
+        "expected_answer": "Speed = 30 km/hr = 30 * (5/18) = 5 * (5/3) = 25/3 m/s."
+      },
+      {
+        "point": "Identify Distance",
+        "expected_answer": "To cross a pole, the train must cover its own length. Distance = 100m."
+      },
+      {
+        "point": "Calculate Time",
+        "expected_answer": "Time = Distance / Speed = 100 / (25/3) = 100 * (3/25) = 4 * 3 = 12 seconds."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_047",
+    "topic": "Aptitude",
+    "question": "A can do a job in 15 days, B in 10 days. They start working together, but A leaves after 2 days. In how many days will B finish the remaining work?",
+    "scoring_rubric": [
+      {
+        "point": "Combined Rate and Work Done",
+        "expected_answer": "Combined 1-day work = (1/15) + (1/10) = (2+3)/30 = 5/30 = 1/6. Work done in 2 days = 2 * (1/6) = 1/3."
+      },
+      {
+        "point": "Remaining Work",
+        "expected_answer": "Remaining work = 1 - (1/3) = 2/3."
+      },
+      {
+        "point": "Time for B to Finish",
+        "expected_answer": "B's rate is 1/10. Time = Work / Rate = (2/3) / (1/10) = (2/3) * 10 = 20/3 = 6.67 days."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_048",
+    "topic": "Aptitude",
+    "question": "Find the next number in the series: 1, 8, 27, 64, 125, ...",
+    "scoring_rubric": [
+      {
+        "point": "Identify Pattern",
+        "expected_answer": "The numbers are the cubes of consecutive integers."
+      },
+      {
+        "point": "Verify Pattern",
+        "expected_answer": "1 = 1^3, 8 = 2^3, 27 = 3^3, 64 = 4^3, 125 = 5^3."
+      },
+      {
+        "point": "Calculate Next Number",
+        "expected_answer": "The next number is 6^3, which is 216."
+      }
+    ]
+  },
+  {
+    "id": "aptitude_049",
+    "topic": "Aptitude",
+    "question": "If 5 spiders can catch 5 flies in 5 minutes, how many flies can 100 spiders catch in 100 minutes?",
+    "scoring_rubric": [
+      {
+        "point": "Find Individual Rate",
+        "expected_answer": "If 5 spiders catch 5 flies in 5 min, then 1 spider catches 1 fly in 5 min."
+      },
+      {
+        "point": "Scale for Spiders",
+        "expected_answer": "If 1 spider catches 1 fly in 5 min, then 100 spiders catch 100 flies in 5 min."
+      },
+      {
+        "point": "Scale for Time",
+        "expected_answer": "If 100 spiders catch 100 flies in 5 min, then in 100 min (which is 20 * 5 min), they will catch 100 * 20 = 2000 flies."
+      }
+    ]
+  }
+]
