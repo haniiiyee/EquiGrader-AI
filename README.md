@@ -133,11 +133,11 @@ streamlit run app.py
 ---
 
 ## 🔮 Roadmap & Future Vision
-# ##RAG Integration: Allow the AI to "read" specific textbooks for targeted exam prep.
-# ##Behavioral Analysis: Use Computer Vision to provide feedback on eye contact and confidence.
-# ##Expanded Disciplines: Growing the question bank to include Mechanical, Civil, and Electrical Engineering.
+### RAG Integration: Allow the AI to "read" specific textbooks for targeted exam prep.
+### Behavioral Analysis: Use Computer Vision to provide feedback on eye contact and confidence.
+### Expanded Disciplines: Growing the question bank to include Mechanical, Civil, and Electrical Engineering.
 
 ---
 
-Author
-Created with ❤️ and a lot of coffee by Hani Mohammad Kaif.
+## Author
+### Created with ❤️ and a lot of coffee by Hani Mohammad Kaif.
