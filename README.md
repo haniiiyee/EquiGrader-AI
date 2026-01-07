@@ -109,6 +109,7 @@ Once Ollama is installed, open your terminal and pull the model:
 ollama pull phi3
 ```
 ### 3. Clone the Repository
+
 ```bash
 git clone [https://github.com/YourUsername/EquiGrader-AI.git](https://github.com/YourUsername/EquiGrader-AI.git)
 cd EquiGrader-AI
