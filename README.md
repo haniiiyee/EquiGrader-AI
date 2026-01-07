@@ -1,5 +1,10 @@
 # ⚖️ EquiGrader AI
 
+![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100.0+-05998b.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.25.0+-FF4B4B.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
 ### Fair, Explainable, & Stress-Free Technical Interview Prep
 
 **EquiGrader AI** is an automated practice partner designed to level the playing field for technical interviews. By leveraging **Local LLMs (Phi-3)** and **Speech Recognition (Whisper)**, it allows you to practice speaking naturally while receiving feedback based solely on your engineering logic—not your accent or grammar.
